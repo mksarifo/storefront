@@ -1,1 +1,16 @@
-<p>product works!</p>
+<div class="product-container" >
+  <a routerLink="/product/{{product.id}}">
+    <img class="product-image" alt="Product Image" src="{{product.url}}">
+  </a>
+  <p>{{product.name}}</p>
+  <p>{{product.price | currency}}</p>
+  <select class="select-input">
+    <option>1</option>
+    <option>2</option>
+    <option>3</option>
+    <option>4</option>
+    <option>5</option>
+    <option>6</option>
+  </select>
+  <button class="btn btn-primary">Add To Cart</button>
+</div>
