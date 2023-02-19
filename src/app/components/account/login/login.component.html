@@ -1,1 +1,18 @@
-<p>login works!</p>
+<form class="sign-in" (ngSubmit)="authenticate()">
+  <img class="mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+  <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+  <label for="inputEmail" class="sr-only">Username</label>
+  <input type="text" id="inputEmail" name="username" [(ngModel)]="login.username" class="form-control" placeholder="Username" required autofocus="">
+  <label for="inputPassword" class="sr-only">Password</label>
+  <input type="password" id="inputPassword" class="form-control" name="rememberMe" [(ngModel)]="login.password" placeholder="Password" required>
+  <div class="checkbox mb-3">
+    <label>
+      <input type="checkbox" value="remember-me" name="rememberMe" [(ngModel)]="login.rememberMe"> Remember me
+    </label>
+  </div>
+  <br>
+  <ngb-alert [type]="'success'" *ngIf="loginAlert" >Login successful ✅</ngb-alert>
+  <ngb-alert [type]="'danger'" *ngIf="authenticationError" >Wrong username or password 🔴</ngb-alert>
+  <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+  <br>
+</form>
