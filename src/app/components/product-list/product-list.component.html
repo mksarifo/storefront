@@ -2,4 +2,16 @@
   <div class="product-index">
     <app-product *ngFor="let item of items" [product]="item"></app-product>
   </div>
+
 </div>
+<div class="row">
+  <p class="text-center">Showing page {{page}} of {{round(totalItems/pageSize)}}</p>
+  <br>
+  <div class="col-12 justify-content-center">
+    <ngb-pagination
+      [(page)]="page"
+      [pageSize]="pageSize"
+      [collectionSize]="items.length"></ngb-pagination>
+  </div>
+</div>
+

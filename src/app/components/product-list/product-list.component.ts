@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {round} from "@popperjs/core/lib/utils/math";
 
 @Component({
   selector: 'app-product-list',
@@ -49,7 +50,49 @@ export class ProductListComponent {
       "price": 29.99,
       "url": "https://images.unsplash.com/photo-1581655353564-df123a1eb820?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=800&q=80",
       "description": "Wear it with style!"
+    },
+    {
+      "id": 7,
+      "name": "Shirt",
+      "price": 29.99,
+      "url": "https://images.unsplash.com/photo-1581655353564-df123a1eb820?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=800&q=80",
+      "description": "Wear it with style!"
+    },
+    {
+      "id": 8,
+      "name": "Shirt",
+      "price": 29.99,
+      "url": "https://images.unsplash.com/photo-1581655353564-df123a1eb820?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=800&q=80",
+      "description": "Wear it with style!"
+    },
+    {
+      "id": 9,
+      "name": "Shirt",
+      "price": 29.99,
+      "url": "https://images.unsplash.com/photo-1581655353564-df123a1eb820?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=800&q=80",
+      "description": "Wear it with style!"
+    },
+    {
+      "id": 10,
+      "name": "Shirt",
+      "price": 29.99,
+      "url": "https://images.unsplash.com/photo-1581655353564-df123a1eb820?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=800&q=80",
+      "description": "Wear it with style!"
+    },
+    {
+      "id": 11,
+      "name": "Shirt",
+      "price": 29.99,
+      "url": "https://images.unsplash.com/photo-1581655353564-df123a1eb820?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=800&q=80",
+      "description": "Wear it with style!"
     }
   ]
 
+  page = 1
+  pageSize = 10
+  totalItems = this.items.length
+
+  round(number: number) {
+    return Math.ceil(number)
+  }
 }
