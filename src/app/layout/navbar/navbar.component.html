@@ -1,6 +1,6 @@
-<nav class="navbar navbar-expand-md navbar-dark bg-info">
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" routerLink="/">
       <img src="/assets/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
       My Store
     </a>
@@ -21,7 +21,7 @@
           <a class="nav-link" routerLink="/">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/cart">Cart</a>
+          <a class="nav-link" routerLink="/cart">Cart <span *ngIf="cartCount>0" class="badge badge-primary">{{cartCount}}</span></a>
         </li>
       </ul>
     </div>

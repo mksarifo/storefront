@@ -1,11 +1,8 @@
-.header {
-  text-align: center;
-  background: #33B5E5;
-  color: #fff;
-  padding: 10px;
-}
-
 a {
   color: #ffffff;
   text-decoration: none;
+}
+
+.badge-primary {
+  background-color: #5fa95f;
 }
