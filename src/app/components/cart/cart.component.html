@@ -1,1 +1,46 @@
-<p>cart works!</p>
+<div class="cart-container" *ngIf="items.length > 0 && !confirmed">
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="cart-item" *ngFor="let cartItem of items">
+        <img alt="Product Image" src="{{cartItem.product.imageUrl}}">
+        <div class="cart-item-details">
+          <h3>{{ cartItem.product.name }}</h3>
+          <p>{{ cartItem.product.price | currency }}</p>
+          <label for="quantity">Quantity:
+            <input type="number" class="number-input" name="quantity" id="quantity" [(ngModel)]="cartItem.quantity">
+          </label>
+          <br>
+          <button class="btn btn-sm btn-light" (click)="remove(cartItem.product)">🗑️</button>
+        </div>
+      </div>
+      <h3>Total: {{total | currency}}</h3>
+    </div>
+    <div class="col-sm-6">
+      <div class="cart-panel">
+        <form #form="ngForm" class="form-margin" (ngSubmit)="checkout()">
+          <h3>Check-out</h3>
+          <label for="inputName">Full name</label>
+          <input class="form-control" #fullName="ngModel" required minlength="3" name="fullName" id="inputName" type="text" placeholder="Full name" [(ngModel)]="billing.fullName">
+          <label for="inputAddress">Address</label>
+          <input class="form-control" required minlength="5" name="address" id="inputAddress" type="text" placeholder="Address" [(ngModel)]="billing.address">
+          <label for="inputCredit">Credit Card Number</label>
+          <input class="form-control" required minlength="6" name="creditCard" id="inputCredit" type="number" placeholder="Credit card" [(ngModel)]="billing.creditCardNumber">
+          <div *ngIf="fullName.errors">
+            <span style="color: red">Please fill all fields</span>
+          </div>
+          <br>
+          <button type="submit" [disabled]="form.invalid" class="btn btn-primary btn-block">Check out</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="cart-container" *ngIf="items.length < 1 && !confirmed">
+  <div style="text-align: center">
+    <img  class="mb-4" src="/assets/logo.png" alt="" width="120" height="120">
+    <h2 class="empty-cart-message">Your cart is empty</h2>
+    <a routerLink="/">Browse products</a>
+  </div>
+
+</div>
+<app-confirmation *ngIf="confirmed" [billing]="billing" [total]="total"></app-confirmation>

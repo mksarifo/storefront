@@ -28,7 +28,7 @@ export class LoginComponent {
         next: () => {
           this.authenticationError = false;
           this.loginAlert = true
-          setTimeout(() => this.router.navigate(['/cart']), 5000);
+          setTimeout(() => this.router.navigate(['/cart']), 2000);
         },
         error: () => (this.authenticationError = true),
       }

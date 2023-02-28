@@ -5,7 +5,7 @@ import {BASE_URL} from "../config/constants";
 import {Login} from "../domain/Login";
 
 type JwtToken = {
-  id_token: string;
+  accessToken: string;
 };
 
 @Injectable({
@@ -24,7 +24,7 @@ export class AuthService {
 
   login(credentials: Login): Observable<void> {
     return this.http
-      .post<JwtToken>(`${BASE_URL}/authenticate`, credentials)
+      .post<JwtToken>(`${BASE_URL}/login`, credentials)
       .pipe(map(response => this.authenticateSuccess(response, credentials.rememberMe)));
   }
 
@@ -37,7 +37,7 @@ export class AuthService {
   }
 
   private authenticateSuccess(response: JwtToken, rememberMe: boolean): void {
-    const jwt = response.id_token;
+    const jwt = response.accessToken;
     if (rememberMe) {
       localStorage.setItem('authenticationToken', jwt);
       sessionStorage.removeItem('authenticationToken');
@@ -45,5 +45,11 @@ export class AuthService {
       sessionStorage.setItem('authenticationToken', jwt);
       localStorage.removeItem('authenticationToken');
     }
+  }
+
+  register(user: { password: string; email: string }) {
+    return this.http
+      .post<JwtToken>(`${BASE_URL}/register`, user)
+      .pipe(map(response => this.authenticateSuccess(response, true)));
   }
 }
