@@ -1,4 +1,5 @@
 import {Component, Input} from '@angular/core';
+import {AuthService} from "../../services/auth.service";
 
 @Component({
   selector: 'app-navbar',
@@ -8,4 +9,13 @@ import {Component, Input} from '@angular/core';
 export class NavbarComponent {
   collapsed = true;
   @Input() cartCount = 0
+  @Input() isLogged = false
+
+  constructor(private authService: AuthService) {
+  }
+
+  logout() {
+    this.authService.logout()
+    this.isLogged = false
+  }
 }

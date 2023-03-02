@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {EventEmitter, Injectable} from '@angular/core';
 import {map, Observable} from "rxjs";
 import {HttpClient} from "@angular/common/http";
 import {BASE_URL} from "../config/constants";
@@ -15,7 +15,7 @@ export class AuthService {
 
   constructor(private http: HttpClient) { }
 
-
+  isAuthenticated = new EventEmitter<boolean>();
   getToken(): string {
     const tokenInLocalStorage: string | null = localStorage.getItem('authenticationToken');
     const tokenInSessionStorage: string | null = sessionStorage.getItem('authenticationToken');
@@ -32,12 +32,14 @@ export class AuthService {
     return new Observable(observer => {
       localStorage.removeItem('authenticationToken');
       localStorage.removeItem('authenticationToken');
+      this.isAuthenticated.emit(false);
       observer.complete();
     });
   }
 
   private authenticateSuccess(response: JwtToken, rememberMe: boolean): void {
     const jwt = response.accessToken;
+    this.isAuthenticated.emit(true);
     if (rememberMe) {
       localStorage.setItem('authenticationToken', jwt);
       sessionStorage.removeItem('authenticationToken');
