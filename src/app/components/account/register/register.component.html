@@ -1,1 +1,144 @@
-<p>register works!</p>
+<div class="d-flex justify-content-center">
+  <div class="col-md-8">
+    <div style="text-align: center">
+      <img  class="mb-4" src="/assets/logo.png" alt="" width="120" height="120">
+      <h1 style="text-align: center" class="h3 mb-3 font-weight-normal">Create a new account</h1>
+    </div>
+    <form name="form" role="form" (ngSubmit)="register()" [formGroup]="registerForm" *ngIf="!success">
+      <div class="mb-3">
+        <label class="form-label" for="email" >Email</label>
+        <input
+          type="email"
+          class="form-control"
+          id="email"
+          name="email"
+          placeholder="Email"
+          formControlName="email"
+          data-cy="email"
+        />
+
+        <div *ngIf="registerForm.get('email')!.invalid && (registerForm.get('email')!.dirty || registerForm.get('email')!.touched)">
+          <small
+            class="form-text text-danger"
+            *ngIf="form['email'].errors?.['required']"
+          >
+            Your email is required.
+          </small>
+
+          <small
+            class="form-text text-danger"
+            *ngIf="form['email'].errors?.['invalid']"
+          >
+            Your email is invalid.
+          </small>
+
+          <small
+            class="form-text text-danger"
+            *ngIf="form['email']?.errors?.['minlength']"
+          >
+            Your email is required to be at least 5 characters.
+          </small>
+
+          <small
+            class="form-text text-danger"
+            *ngIf="form['email']?.errors?.['maxlength']"
+          >
+            Your email cannot be longer than 50 characters.
+          </small>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label" for="password">New password</label>
+        <input
+          type="password"
+          class="form-control"
+          id="password"
+          name="password"
+          formControlName="password"
+          data-cy="firstPassword"
+        />
+
+        <div
+          *ngIf="registerForm.get('password')!.invalid && (registerForm.get('password')!.dirty || registerForm.get('password')!.touched)"
+        >
+          <small
+            class="form-text text-danger"
+            *ngIf="form['password']?.errors?.['required']"
+          >
+            Your password is required.
+          </small>
+
+          <small
+            class="form-text text-danger"
+            *ngIf="form['password']?.errors?.['minlength']"
+          >
+            Your password is required to be at least 4 characters.
+          </small>
+
+          <small
+            class="form-text text-danger"
+            *ngIf="form['password']?.errors?.['maxlength']"
+          >
+            Your password cannot be longer than 50 characters.
+          </small>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label" for="confirmPassword">New password confirmation</label>
+        <input
+          type="password"
+          class="form-control"
+          id="confirmPassword"
+          name="confirmPassword"
+          formControlName="confirmPassword"
+          data-cy="secondPassword"
+        />
+
+        <div
+          *ngIf="
+              registerForm.get('confirmPassword')!.invalid &&
+              (registerForm.get('confirmPassword')!.dirty || registerForm.get('confirmPassword')!.touched)
+            "
+        >
+          <small
+            class="form-text text-danger"
+            *ngIf="form['confirmPassword']?.errors?.['required']"
+          >
+            Your confirmation password is required.
+          </small>
+
+          <small
+            class="form-text text-danger"
+            *ngIf="form['confirmPassword']?.errors?.['minlength']"
+          >
+            Your confirmation password is required to be at least 4 characters.
+          </small>
+
+          <small
+            class="form-text text-danger"
+            *ngIf="form['confirmPassword']?.errors?.['maxlength']"
+          >
+            Your confirmation password cannot be longer than 50 characters.
+          </small>
+        </div>
+      </div>
+
+      <button
+        type="submit"
+        [disabled]="registerForm.invalid"
+        class="btn btn-primary"
+        data-cy="submit"
+        style="width: 100%"
+      >
+        Register
+      </button>
+    </form>
+    <div class="mt-3 alert alert-success" *ngIf="this.success">
+      <span>Registration successful. Click </span>
+      <a class="alert-link" routerLink="/login" >sign in</a>
+      <span> to authenticate.</span>
+    </div>
+  </div>
+</div>
