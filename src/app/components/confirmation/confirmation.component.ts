@@ -8,5 +8,6 @@ import {Component, Input} from '@angular/core';
 export class ConfirmationComponent {
   @Input() billing: any
   @Input() total: any
+  @Input() orderId: any
 
 }
