@@ -43,7 +43,7 @@ export class CartComponent {
     }),
     creditCard: new FormControl('', {
       nonNullable: true,
-      validators: [Validators.required, Validators.minLength(16), Validators.maxLength(19), Validators.pattern("/^\\d+$/")],
+      validators: [Validators.required, Validators.minLength(16), Validators.maxLength(19)],
     }),
   });
 
@@ -55,7 +55,6 @@ export class CartComponent {
   }
 
   checkout(): void {
-    //console.log(this.billing)
     const {fullName, address, creditCard} = this.cartForm.getRawValue();
     this.billing.fullName = fullName
     this.billing.address = address
@@ -88,7 +87,10 @@ export class CartComponent {
     this.calculateTotal()
   }
 
-  calculateTotal() {
+  calculateTotal(e?: any, cartItem?: OrderItem) {
+    if(e && cartItem) {
+      cartItem.quantity = e
+    }
     this.total = 0
     for (const item of this.items) {
       if(item.quantity > 0)

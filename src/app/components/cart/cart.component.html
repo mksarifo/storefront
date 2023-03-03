@@ -7,7 +7,7 @@
           <h3>{{ cartItem.product.name }}</h3>
           <p>{{ cartItem.product.price | currency }}</p>
           <label for="quantity">Quantity:
-            <input type="number" class="number-input" (change)="calculateTotal()" name="quantity" id="quantity" [(ngModel)]="cartItem.quantity">
+            <input type="number" min="1" class="number-input" (ngModelChange)="calculateTotal($event, cartItem)" name="quantity" id="quantity" [(ngModel)]="cartItem.quantity">
           </label>
           <br>
           <button class="btn btn-sm btn-light" (click)="remove(cartItem.product)">🗑️</button>
