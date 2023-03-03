@@ -1,4 +1,4 @@
-import {EventEmitter, Injectable} from '@angular/core';
+import {EventEmitter, Injectable, Output} from '@angular/core';
 import {map, Observable} from "rxjs";
 import {HttpClient} from "@angular/common/http";
 import {BASE_URL} from "../config/constants";
@@ -15,7 +15,7 @@ export class AuthService {
 
   constructor(private http: HttpClient) { }
 
-  isAuthenticated = new EventEmitter<boolean>();
+  @Output() isAuthenticated = new EventEmitter<boolean>();
   getToken(): string {
     const tokenInLocalStorage: string | null = localStorage.getItem('authenticationToken');
     const tokenInSessionStorage: string | null = sessionStorage.getItem('authenticationToken');

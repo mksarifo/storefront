@@ -1,10 +1,11 @@
-import { Component } from '@angular/core';
+import {Component, ViewChild} from '@angular/core';
 import {Billing} from "../../domain/Billing";
 import {CartService} from "../../services/cart.service";
 import {Product} from "../../domain/Product";
 import {Items, Order} from "../../domain/Order";
 import {OrderItem} from "../../domain/OrderItem";
 import {AbstractControl, FormControl, FormGroup, Validators} from "@angular/forms";
+import {SwalComponent} from "@sweetalert2/ngx-sweetalert2";
 
 @Component({
   selector: 'app-cart',
@@ -15,6 +16,9 @@ export class CartComponent {
 
   constructor(private cartService: CartService) {
   }
+
+  @ViewChild('removeSwal')
+  public readonly removeSwal!: SwalComponent;
 
   billing: Billing = {
     fullName: "",
@@ -83,8 +87,12 @@ export class CartComponent {
   }
 
   remove(product: Product) {
-    this.items = this.cartService.removeItem(product)
-    this.calculateTotal()
+    this.removeSwal.fire().then((res)  => {
+      if(res.isConfirmed) {
+        this.items = this.cartService.removeItem(product)
+        this.calculateTotal()
+      }
+    })
   }
 
   calculateTotal(e?: any, cartItem?: OrderItem) {

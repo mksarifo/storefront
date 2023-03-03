@@ -1,4 +1,10 @@
 <div class="product-container" >
+  <swal
+    #successSwal
+    [timer]="2000"
+    text="{{product.name}} added to cart"
+    icon="success">
+  </swal>
   <a routerLink="/product/{{product.id}}">
     <img class="product-image" alt="Product Image" src="{{product.imageUrl}}">
   </a>

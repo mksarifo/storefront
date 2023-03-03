@@ -1,3 +1,12 @@
+<swal
+  #removeSwal
+  text="Remove product from your cart?"
+  icon="question"
+  [showCancelButton]="true"
+  [focusCancel]="true"
+  [swalOptions]="{ confirmButtonText: 'Remove' }"
+>
+</swal>
 <div class="cart-container" *ngIf="items.length > 0 && !confirmed">
   <div class="row">
     <div class="col-sm-6">

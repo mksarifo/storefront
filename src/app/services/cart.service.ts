@@ -1,4 +1,4 @@
-import {EventEmitter, Injectable} from '@angular/core';
+import {EventEmitter, Injectable, Output} from '@angular/core';
 import {OrderItem} from "../domain/OrderItem";
 import {Product} from "../domain/Product";
 import {Order} from "../domain/Order";
@@ -11,7 +11,7 @@ import {HttpClient, HttpResponse} from "@angular/common/http";
 })
 export class CartService {
 
-  cartCount = new EventEmitter<number>();
+  @Output() cartCount = new EventEmitter<number>();
   constructor(private http: HttpClient) { }
 
   addItem(item: OrderItem) {
