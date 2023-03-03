@@ -52,6 +52,5 @@ export class AuthService {
   register(user: { password: string; email: string }) {
     return this.http
       .post<JwtToken>(`${BASE_URL}/register`, user)
-      .pipe(map(response => this.authenticateSuccess(response, true)));
   }
 }

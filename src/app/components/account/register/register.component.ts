@@ -14,8 +14,7 @@ export class RegisterComponent {
   }
   doNotMatch = false;
   error = false;
-  errorEmailExists = false;
-  errorUserExists = false;
+  errorMessage = '';
   success = false;
 
   // convenience getter for easy access to form fields
@@ -43,8 +42,6 @@ export class RegisterComponent {
   register(): void {
     this.doNotMatch = false;
     this.error = false;
-    this.errorEmailExists = false;
-    this.errorUserExists = false;
 
     const { password, confirmPassword } = this.registerForm.getRawValue();
     if (password !== confirmPassword) {
@@ -58,11 +55,7 @@ export class RegisterComponent {
   }
 
   private processError(response: HttpErrorResponse): void {
-    // TODO handle errors
-    if (response.status === 400) {
-      this.errorUserExists = true;
-    } else {
-      this.error = true;
-    }
+    this.error = true;
+    this.errorMessage = response.error as string
   }
 }

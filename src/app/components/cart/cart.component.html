@@ -7,7 +7,7 @@
           <h3>{{ cartItem.product.name }}</h3>
           <p>{{ cartItem.product.price | currency }}</p>
           <label for="quantity">Quantity:
-            <input type="number" class="number-input" name="quantity" id="quantity" [(ngModel)]="cartItem.quantity">
+            <input type="number" class="number-input" (change)="calculateTotal()" name="quantity" id="quantity" [(ngModel)]="cartItem.quantity">
           </label>
           <br>
           <button class="btn btn-sm btn-light" (click)="remove(cartItem.product)">🗑️</button>
@@ -17,19 +17,126 @@
     </div>
     <div class="col-sm-6">
       <div class="cart-panel">
-        <form #form="ngForm" class="form-margin" (ngSubmit)="checkout()">
+        <form class="form-margin" (ngSubmit)="checkout()" [formGroup]="cartForm">
           <h3>Check-out</h3>
-          <label for="inputName">Full name</label>
-          <input class="form-control" #fullName="ngModel" required minlength="3" name="fullName" id="inputName" type="text" placeholder="Full name" [(ngModel)]="billing.fullName">
-          <label for="inputAddress">Address</label>
-          <input class="form-control" required minlength="5" name="address" id="inputAddress" type="text" placeholder="Address" [(ngModel)]="billing.address">
-          <label for="inputCredit">Credit Card Number</label>
-          <input class="form-control" required minlength="6" name="creditCard" id="inputCredit" type="number" placeholder="Credit card" [(ngModel)]="billing.creditCardNumber">
-          <div *ngIf="fullName.errors">
-            <span style="color: red">Please fill all fields</span>
+          <label for="fullName">Full name</label>
+          <input
+            class="form-control"
+            formControlName="fullName"
+            data-cy="fullName"
+            name="fullName"
+            id="fullName"
+            type="text"
+            placeholder="Full name"
+          >
+          <div *ngIf="cartForm.get('fullName')!.invalid && (cartForm.get('fullName')!.dirty || cartForm.get('fullName')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="form['fullName'].errors?.['required']"
+            >
+              Your Full Name is required.
+            </small>
+
+            <small
+              class="form-text text-danger"
+              *ngIf="form['fullName'].errors?.['invalid']"
+            >
+              Full name is invalid.
+            </small>
+
+            <small
+              class="form-text text-danger"
+              *ngIf="form['fullName']?.errors?.['minlength']"
+            >
+              Your Full Name is required to be at least 3 characters.
+            </small>
+
+            <small
+              class="form-text text-danger"
+              *ngIf="form['fullName']?.errors?.['maxlength']"
+            >
+              Your Full Name cannot be longer than 100 characters.
+            </small>
+          </div>
+
+          <label for="address">Address</label>
+          <input
+            class="form-control"
+            formControlName="address"
+            name="address"
+            id="address"
+            data-cy="address"
+            type="text"
+            placeholder="Address">
+          <div *ngIf="cartForm.get('address')!.invalid && (cartForm.get('address')!.dirty || cartForm.get('address')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="form['address'].errors?.['required']"
+            >
+              Address is required.
+            </small>
+
+            <small
+              class="form-text text-danger"
+              *ngIf="form['address'].errors?.['invalid']"
+            >
+              Address is invalid.
+            </small>
+
+            <small
+              class="form-text text-danger"
+              *ngIf="form['address']?.errors?.['minlength']"
+            >
+              Address is required to be at least 4 characters.
+            </small>
+
+            <small
+              class="form-text text-danger"
+              *ngIf="form['address']?.errors?.['maxlength']"
+            >
+              Address cannot be longer than 254 characters.
+            </small>
+          </div>
+          <label for="creditCard">Credit Card Number</label>
+          <input
+            class="form-control"
+            data-cy="creditCard"
+            formControlName="creditCard"
+            name="creditCard"
+            id="creditCard"
+            type="text"
+            placeholder="Credit card">
+          <div *ngIf="cartForm.get('creditCard')!.invalid && (cartForm.get('creditCard')!.dirty || cartForm.get('creditCard')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="form['creditCard'].errors?.['required']"
+            >
+              Credit Card number is required.
+            </small>
+
+            <small
+              class="form-text text-danger"
+              *ngIf="form['creditCard'].errors?.['invalid']"
+            >
+              Credit Card number is invalid.
+            </small>
+
+            <small
+              class="form-text text-danger"
+              *ngIf="form['creditCard']?.errors?.['minlength']"
+            >
+              Credit Card number has to be at least 16 characters.
+            </small>
+
+            <small
+              class="form-text text-danger"
+              *ngIf="form['creditCard']?.errors?.['maxlength']"
+            >
+              Credit Card number cannot be longer than 19 characters.
+            </small>
           </div>
           <br>
-          <button type="submit" [disabled]="form.invalid" class="btn btn-primary btn-block">Check out</button>
+          <button type="submit" [disabled]="cartForm.invalid" data-cy="submit" class="btn btn-primary btn-block">Check out</button>
         </form>
       </div>
     </div>
@@ -43,4 +150,4 @@
   </div>
 
 </div>
-<app-confirmation *ngIf="confirmed" [billing]="billing" [total]="total"></app-confirmation>
+<app-confirmation *ngIf="confirmed" [billing]="billing" [total]="total" [orderId]="orderId"></app-confirmation>

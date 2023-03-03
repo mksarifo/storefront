@@ -1,0 +1,172 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Apple iPhone 13 Pro Max",
+      "description": "The ultimate pro camera system, super retina XDR display, A15 Bionic chip",
+      "price": 1099,
+      "stockQuantity": 50,
+      "imageUrl": "https://fdn.gsmarena.com/imgroot/news/21/09/iphone-13-pro-announced/popup/-315/gsmarena_011.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Samsung Galaxy S21 Ultra 5G",
+      "description": "120Hz Dynamic AMOLED 2X display, 108MP pro camera, 5G connectivity",
+      "price": 1199,
+      "stockQuantity": 100,
+      "imageUrl": "https://fdn.gsmarena.com/imgroot/reviews/21/samsung-galaxy-s21-ultra/lifestyle/-1200w5/gsmarena_003.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Google Pixel 6 Pro",
+      "description": "6.7-inch QHD+ display, 50MP main camera, 128GB storage",
+      "price": 999,
+      "stockQuantity": 25,
+      "imageUrl": "https://fdn.gsmarena.com/imgroot/news/21/05/google-pixel-6-pro-leak/-1200/gsmarena_004.jpg"
+    },
+    {
+      "id": 4,
+      "name": "Sony PlayStation 5",
+      "description": "Lightning-fast loading, haptic feedback, 3D Audio",
+      "price": 499,
+      "stockQuantity": 200,
+      "imageUrl": "https://m.media-amazon.com/images/I/61d4loPJB9L.jpg"
+    },
+    {
+      "id": 5,
+      "name": "Xbox Series X",
+      "description": "Power your dreams with Xbox Velocity Architecture, 4K gaming",
+      "price": 499,
+      "stockQuantity": 150,
+      "imageUrl": "https://assets.xboxservices.com/assets/ef/9e/ef9e8f9f-4141-409c-9bab-659102bcc6b2.jpg?n=XSX_Page-Hero-0_768x1434.jpg"
+    },
+    {
+      "id": 6,
+      "name": "Amazon Echo (4th Generation)",
+      "description": "Smart speaker with Alexa, high-fidelity audio",
+      "price": 99,
+      "stockQuantity": 75,
+      "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/71JB6hM6Z6L._AC_SL1000_.jpg"
+    },
+    {
+      "id": 7,
+      "name": "Apple iPhone 14 Pro Max",
+      "description": "The ultimate pro camera system, super retina XDR display, A16 Bionic chip",
+      "price": 1599,
+      "stockQuantity": 50,
+      "imageUrl": "https://www.apple.com/newsroom/images/product/iphone/standard/Apple-iPhone-14-Pro-iPhone-14-Pro-Max-deep-purple-220907_inline.jpg.large.jpg"
+    },
+    {
+      "id": 8,
+      "name": "Samsung Galaxy S22 Ultra",
+      "description": "120Hz Dynamic AMOLED 2X display, 108MP pro camera, 5G connectivity",
+      "price": 1199,
+      "stockQuantity": 100,
+      "imageUrl": "https://images.kabum.com.br/produtos/fotos/305815/smartphone-samsung-galaxy-s22-ultra-12gb-ram-256gb-camera-tripla-108mp-tela-infinita-6-8-preto-sm-s908ezkszto_1644523787_original.jpg"
+    },
+    {
+      "id": 9,
+      "name": "Google Pixel 7 Pro",
+      "description": "6.7-inch QHD+ display, 50MP main camera, 128GB storage",
+      "price": 999,
+      "stockQuantity": 25,
+      "imageUrl": "https://cdn.dxomark.com/wp-content/uploads/medias/post-126764/Google-Pixel-7-Pro_featured-image-packshot-review.jpg"
+    },
+    {
+      "id": 10,
+      "name": "Nintendo Switch Pro",
+      "description": "Lightning-fast loading, haptic feedback, 3D Audio",
+      "price": 499,
+      "stockQuantity": 200,
+      "imageUrl": "https://media.wired.co.uk/photos/60c3337eb6780203c5078960/1:1/w_3332,h_3332,c_limit/1221-WIRED-SwitchPro.jpg"
+    },
+    {
+      "id": 11,
+      "name": "Xbox Series S",
+      "description": "Power your dreams with Xbox Velocity Architecture",
+      "price": 499,
+      "stockQuantity": 150,
+      "imageUrl": "https://m.media-amazon.com/images/I/71NBQ2a52CL.jpg"
+    },
+    {
+      "id": 12,
+      "name": "Amazon Echo Studio",
+      "description": "Smart speaker with Alexa, high-fidelity audio",
+      "price": 99,
+      "stockQuantity": 75,
+      "imageUrl": "https://i.zst.com.br/thumbs/12/31/39/1296768274.jpg"
+    },
+    {
+      "id": 13,
+      "name": "Canon 5D Mark V",
+      "description": "The ultimate pro camera system, super retina XDR display, A15 Bionic chip",
+      "price": 1099,
+      "stockQuantity": 50,
+      "imageUrl": "https://dakauf.eu/wp-content/uploads/2021/05/5D_IV_105_4l_II_Top.jpg"
+    },
+    {
+      "id": 14,
+      "name": "OnePlus 11R",
+      "description": "Qualcomm SM8475 Snapdragon 8+ Gen 1 (4 nm) 128GB 8GB RAM, 256GB 16GB RAM; UFS 3.1",
+      "price": 1199,
+      "stockQuantity": 100,
+      "imageUrl": "https://fdn2.gsmarena.com/vv/pics/oneplus/oneplus-ace2-3.jpg"
+    },
+    {
+      "id": 15,
+      "name": "vivo V27 Pro",
+      "description": "6.7-inch QHD+ display, 50MP main camera, 128GB storage",
+      "price": 999,
+      "stockQuantity": 25,
+      "imageUrl": "https://fdn2.gsmarena.com/vv/pics/vivo/vivo-v27-pro-2.jpg"
+    },
+    {
+      "id": 16,
+      "name": "Samsung Galaxy S23+",
+      "description": "Lightning-fast loading, haptic feedback, 3D Audio",
+      "price": 799,
+      "stockQuantity": 200,
+      "imageUrl": "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-s23-plus-5g-3.jpg"
+    },
+    {
+      "id": 17,
+      "name": "Sony Xperia 5 IV",
+      "description": "Power your dreams with Xbox Velocity Architecture, 4K gaming",
+      "price": 2499,
+      "stockQuantity": 150,
+      "imageUrl": "https://fdn2.gsmarena.com/vv/pics/sony/sony-xperia-5-iv-green.jpg"
+    },
+    {
+      "id": 18,
+      "name": "Microsoft Surface Duo 2",
+      "description": "Smart speaker with Alexa, high-fidelity audio",
+      "price": 2399,
+      "stockQuantity": 75,
+      "imageUrl": "https://fdn2.gsmarena.com/vv/pics/microsoft/microsoft-surface-duo2-5.jpg"
+    }
+  ],
+  "orders": [
+    {
+      "id": 1,
+      "items": [
+        {
+          "id": 1,
+          "quantity": 11,
+          "product_id": 1
+        }
+      ],
+      "details": {
+        "fullName": "Some name",
+        "address": "Some address",
+        "creditCardNumber": "12329283"
+      }
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "email": "admin@local",
+      "password": "$2a$10$gs7x9lDreGk/g5mODtoS..DcJ/k1NQqqh2CpyVGlpr6lT8S7n0Nq."
+    }
+  ]
+}
